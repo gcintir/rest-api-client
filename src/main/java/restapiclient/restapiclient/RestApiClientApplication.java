@@ -11,6 +11,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,6 +44,7 @@ public class RestApiClientApplication implements CommandLineRunner {
 
 	test12(); */
 
+		test12();
 	}
 
 	public void test1() throws RestApiRequestHandlerException {
@@ -141,8 +143,7 @@ public class RestApiClientApplication implements CommandLineRunner {
 
 		Map<String, String> requestHeaders = new HashMap<>();
 		requestHeaders.put("Content-Type", MediaType.APPLICATION_JSON_VALUE);
-		Map<String, Person> r = restApiRequestHandler.sendRequest("http://localhost:8090/test10", HttpMethod.POST, requestHeaders, new ParameterizedTypeReference<Map<String, Person>>() {
-		});
+		Void r = restApiRequestHandler.sendRequest("http://localhost:8090/test11", HttpMethod.GET, requestHeaders, Void.class);
 		System.out.println(r);
 	}
 }

@@ -108,8 +108,6 @@ public class RestApiRequestHandlerImpl implements RestApiRequestHandler {
             throw new RestApiRequestHandlerException("incoming responseEntity is NULL");
         if (HttpStatus.OK != responseEntity.getStatusCode())
             throw new RestApiRequestHandlerException("incoming responseEntity status code is " + responseEntity.getStatusCode());
-        if (null == responseEntity.getBody())
-            throw new RestApiRequestHandlerException("incoming responseEntity body is NULL");
         return responseEntity.getBody();
     }
 
